@@ -1,4 +1,4 @@
-package com.example.client.entity;
+package com.example.domain;
 
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -8,66 +8,63 @@ import java.io.Serializable;
 public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
     private static final int NAME_LENGTH = 100;
+
     private Long bookId;
     private String bookName;
     private String publisher;
 
     public Book() {
+        super();
     }
 
-    public Book(Long bookId) {
+    public Book(final Long bookId) {
         this.bookId = bookId;
     }
 
-    public Book(String bookName) {
+    public Book(final String bookName) {
         this.bookName = bookName;
     }
 
-    public Book(Long bookId, String bookName) {
+    public Book(final Long bookId, final String bookName) {
+        super();
         this.bookId = bookId;
         this.bookName = bookName;
     }
 
-    public Book(Long bookId, String bookName, String publisher) {
+    public Book(final Long bookId, final String bookName, String publisher) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.publisher = publisher;
     }
-
-    @XmlAttribute(
-            name = "bookId"
-    )
+    @XmlAttribute(name = "bookId")
     public Long getBookId() {
-        return this.bookId;
+        return bookId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(final Long bookId) {
         this.bookId = bookId;
     }
 
-    @XmlAttribute(
-            name = "bookName"
-    )
+    @XmlAttribute(name = "bookName")
     public String getBookName() {
-        return this.bookName;
+        return bookName;
     }
 
-    public void setBookName(String bookName) {
+    public void setBookName(final String bookName) {
         this.bookName = bookName;
     }
 
-    @XmlAttribute(
-            name = "publisher"
-    )
+    @XmlAttribute(name = "publisher")
     public String getPublisher() {
-        return this.publisher;
+        return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(final String publisher) {
         this.publisher = publisher;
     }
 
+    @Override
     public String toString() {
-        return this.bookId + ":" + this.bookName + ":" + this.publisher;
+        return bookId + ":" + bookName + ":" + publisher;
     }
 }
