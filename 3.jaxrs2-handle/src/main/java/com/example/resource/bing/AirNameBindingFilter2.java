@@ -18,16 +18,16 @@ public class AirNameBindingFilter2 implements ContainerRequestFilter, ContainerR
     private static final Logger LOGGER = Logger.getLogger(AirNameBindingFilter2.class);
 
     public AirNameBindingFilter2() {
-        LOGGER.info("Air-NameBinding-Filter2 Priority+1 initialized");
+        LOGGER.info("Air-NameBinding-Filter2 Priority+1 initialized " + this);
     }
 
     @Override
     public void filter(final ContainerRequestContext requestContext) throws IOException {
-        LOGGER.debug("Air-NameBinding-ContainerRequestFilter2  Priority+1 invoked");
+        LOGGER.debug("Air-NameBinding-ContainerRequestFilter2  Priority+1 invoked " + this);
     }
 
     @Override
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
-        LOGGER.debug("Air-NameBinding-ContainerResponseFilter2 Priority+1 invoked");
+        LOGGER.debug("Air-NameBinding-ContainerResponseFilter2 Priority+1 invoked " + this);
     }
 }

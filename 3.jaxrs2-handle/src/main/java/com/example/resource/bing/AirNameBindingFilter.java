@@ -16,18 +16,18 @@ public class AirNameBindingFilter implements ContainerRequestFilter, ContainerRe
     private static final Logger LOGGER = Logger.getLogger(AirNameBindingFilter.class);
 
     public AirNameBindingFilter() {
-        LOGGER.info("Air-NameBinding-Filter initialized");
+        LOGGER.info("Air-NameBinding-Filter initialized " + this);
     }
 
     @Override
     public void filter(final ContainerRequestContext containerRequest) throws IOException {
-        LOGGER.debug("Air-NameBinding-ContainerRequestFilter invoked:" + containerRequest.getMethod());
+        LOGGER.debug("Air-NameBinding-ContainerRequestFilter invoked:" + containerRequest.getMethod() + " " + this);
         LOGGER.debug(containerRequest.getUriInfo().getRequestUri());
     }
 
     @Override
     public void filter(ContainerRequestContext containerRequest, ContainerResponseContext responseContext) throws IOException {
-        LOGGER.debug("Air-NameBinding-ContainerResponseFilter invoked:" + containerRequest.getMethod());
+        LOGGER.debug("Air-NameBinding-ContainerResponseFilter invoked:" + containerRequest.getMethod() + " " + this);
         LOGGER.debug("status=" + responseContext.getStatus());
     }
 }

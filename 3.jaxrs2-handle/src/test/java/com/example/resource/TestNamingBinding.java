@@ -18,6 +18,8 @@ public class TestNamingBinding extends JerseyTest {
 
     @Override
     protected Application configure() {
+        enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
+        enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
         return new AirAopConfig();
     }
 

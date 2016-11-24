@@ -24,8 +24,8 @@ public class TIResourceJtfTest extends JerseyTest {
 
     @Override
     protected Application configure() {
-        //enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
-        //enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
+//        enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
+//        enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
         ResourceConfig config = new ResourceConfig(BookResource.class);
         //return config.register(com.example.filter.log.AirLogFilter.class);
         return config.register(AirReaderWriterInterceptor.class);
@@ -70,7 +70,10 @@ public class TIResourceJtfTest extends JerseyTest {
         TIResourceJtfTest.LOGGER.debug(">>Test Post");
         final Book newBook = new Book("Java Restful Web Service实战-" + System.nanoTime());
         final Entity<Book> bookEntity = Entity.entity(newBook, MediaType.APPLICATION_JSON_TYPE);
-        final Book savedBook = target(TIResourceJtfTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+
+        Book savedBook = target(TIResourceJtfTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+        savedBook = target(TIResourceJtfTest.BASEURI).request(MediaType.APPLICATION_JSON_TYPE).post(bookEntity, Book.class);
+
         Assert.assertNotNull(savedBook.getBookId());
         TIResourceJtfTest.LOGGER.debug("<<Test Post");
     }

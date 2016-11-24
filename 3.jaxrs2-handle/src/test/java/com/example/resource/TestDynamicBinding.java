@@ -18,6 +18,8 @@ public class TestDynamicBinding extends JerseyTest {
 
     @Override
     protected Application configure() {
+        enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
+        enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
         ResourceConfig config = new ResourceConfig(BookResource.class);
         config.register(AirDynamicFeature.class);
         return config;

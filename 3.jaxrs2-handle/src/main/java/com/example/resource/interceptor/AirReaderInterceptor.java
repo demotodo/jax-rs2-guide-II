@@ -13,11 +13,12 @@ public class AirReaderInterceptor implements ReaderInterceptor {
     private static final Logger LOGGER = Logger.getLogger(AirReaderInterceptor.class);
 
     public AirReaderInterceptor() {
-        LOGGER.info("AirReaderInterceptor initialized");
+        LOGGER.info("AirReaderInterceptor initialized " + this);
     }
 
     @Override
     public Object aroundReadFrom(final ReaderInterceptorContext context) throws IOException, WebApplicationException {
-        return null;
+        LOGGER.debug("aroundReadFrom " + this);
+        return context.proceed();
     }
 }

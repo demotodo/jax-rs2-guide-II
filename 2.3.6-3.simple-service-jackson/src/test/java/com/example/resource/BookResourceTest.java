@@ -11,14 +11,12 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.test.JerseyTest;
 import org.glassfish.jersey.test.TestProperties;
-import org.glassfish.jersey.test.util.runner.ConcurrentRunner;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 
-@RunWith(ConcurrentRunner.class)
+//@RunWith(ConcurrentRunner.class)
 public class BookResourceTest extends JerseyTest {
     private static final Logger LOGGER = Logger.getLogger(BookResourceTest.class);
 
@@ -36,11 +34,13 @@ public class BookResourceTest extends JerseyTest {
         config.register(new JacksonFeature()).register(JsonContextProvider.class);
     }
 
+    @Test
     public void testEmptyArray() {
         JsonBook book = target("books").path("emptybook").request(MediaType.APPLICATION_JSON).get(JsonBook.class);
         LOGGER.debug(book);
     }
 
+    @Test
     public void testHybrid() {
         JsonHybridBook book = target("books").path("hybirdbook").request(MediaType.APPLICATION_JSON).get(JsonHybridBook.class);
         LOGGER.debug(book);

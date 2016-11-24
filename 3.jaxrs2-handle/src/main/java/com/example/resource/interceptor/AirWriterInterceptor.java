@@ -13,10 +13,12 @@ public class AirWriterInterceptor implements WriterInterceptor {
     private static final Logger LOGGER = Logger.getLogger(AirWriterInterceptor.class);
 
     public AirWriterInterceptor() {
-        LOGGER.info("AirWriterInterceptor initialized");
+        LOGGER.info("AirWriterInterceptor initialized " + this);
     }
 
     @Override
     public void aroundWriteTo(final WriterInterceptorContext context) throws IOException, WebApplicationException {
+        LOGGER.debug("aroundWriteTo " + this);
+        context.proceed();
     }
 }

@@ -15,7 +15,9 @@ public class TestMoxyWriter extends JerseyTest {
 
     @Override
     protected Application configure() {
-        ResourceConfig config = new ResourceConfig(ByteArrayResource.class);
+        enable(org.glassfish.jersey.test.TestProperties.LOG_TRAFFIC);
+        enable(org.glassfish.jersey.test.TestProperties.DUMP_ENTITY);
+        ResourceConfig config = new ResourceConfig(MoxyResource.class);
         return config;
     }
 

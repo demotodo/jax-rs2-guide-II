@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "root")
 public class JsonHybridBook {
-    @JsonProperty("bookId")
+    @JsonProperty("book-id")
     private String bookId;
 
-    @JsonProperty("bookName")
+    @JsonProperty("book-name")
     private String bookName;
 
     public JsonHybridBook() {

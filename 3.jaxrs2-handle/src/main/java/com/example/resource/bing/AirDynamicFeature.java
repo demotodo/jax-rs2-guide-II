@@ -14,7 +14,8 @@ public class AirDynamicFeature implements DynamicFeature {
         boolean classMatched = BookResource.class.isAssignableFrom(resourceInfo.getResourceClass());
         boolean methodNameMatched = resourceInfo.getResourceMethod().getName().contains("getBookBy");
         boolean methodTypeMatched = resourceInfo.getResourceMethod().isAnnotationPresent(POST.class);
-        if (classMatched && (methodNameMatched || methodTypeMatched)) {
+//        if (classMatched && (methodNameMatched || methodTypeMatched)) {
+        if (classMatched && methodTypeMatched) {
             context.register(AirDynamicBindingFilter.class);
         }
     }
